@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Hambúrguer</title>
+
+   <style>
+       *{ 
+           margin: 0; 
+           padding: 0;
+
+           border: none;
+           box-sizing: border-box;
+           outline: none;
+        }
+
+       #conteiner
+        {
+            /* border: 1px solid red;  */
+            width: 80px; 
+            height: 80px;
+
+            position: absolute;
+            top: 50vh;
+            left: 50vw;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+           
+            margin: 0 auto;
+
+            background-color: blueviolet;
+
+            border-radius: 8px;
+
+            transition: all .3s linear;
+
+            cursor: pointer;
+        }
+
+        #conteiner.active
+        {
+            border-radius: 50%;
+        }
+
+        .menu, .menu::after, .menu::before
+        {
+            width: 80%;
+            height: 8px;
+
+            margin: auto;
+
+            background-color: #fff;
+
+            border-radius: 2px;
+
+            transition: all .3s linear;
+        }
+
+        .menu::after
+        {
+            content: '';
+
+            position: absolute;
+            top: 50px;
+
+            transition: all .3s linear;
+        }
+
+        .menu::before
+        {
+            content: '';
+
+            position: absolute;
+            bottom: 50px;
+
+            transition: all .3s linear;
+        }
+
+        #conteiner.active .menu{
+	        background-color: transparent;
+            transition: all .3s linear;
+        }
+
+        #conteiner.active .menu::before{
+            transform: translate(0px, 15px) rotate(-45deg);
+	        
+        }
+        #conteiner.active .menu::after{
+	        transform: translate(0px, -15px) rotate(45deg);
+        }
+
+   </style>
+</head>
+<body>
+    
+
+    <div id="conteiner" class="">
+        <div id="btn" class="menu"></div>
+    </div>
+
+    <script>
+
+        btn.addEventListener("click", (e) => {conteiner.classList.toggle("active");})
+
+    </script>
+</body>
+</html>
